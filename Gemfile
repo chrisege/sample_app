@@ -19,12 +19,12 @@ end
 gem 'jquery-rails'
 
 group :test do
-	gem 'rspec', '2.0.1'
+	gem 'rspec'
 	gem 'webrat', '0.7.1'
 end
 
 group :development, :test do
-  gem 'rspec-rails',      ">= 2.0.0.beta"
+  gem 'rspec-rails'
 end
 
 
