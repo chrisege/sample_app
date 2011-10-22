@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 
+gem 'gravatar_image_tag', '0.1.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +22,7 @@ gem 'jquery-rails'
 group :test do
 	gem 'rspec', '2.6'
 	gem 'webrat', '0.7.1'
+	gem 'factory_girl_rails', '1.0'
 end
 
 group :development, :test do
