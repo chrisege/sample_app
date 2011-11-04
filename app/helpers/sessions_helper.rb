@@ -1,7 +1,9 @@
 module SessionsHelper
   
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    #cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    #replaced cookie method with session per exercise 9.6.2
+    session[:userid] = user.id
     self.current_user = user
   end
   
@@ -18,14 +20,18 @@ module SessionsHelper
   end
   
   def sign_out
-    cookies.delete(:remember_token)
+    #cookies.delete(:remember_token)
+    #replaced cookie method with session per exercise 9.6.2
+    session[:userid] = nil
     self.current_user = nil
   end
   
   private
   
     def user_from_remember_token
-      User.authenticate_with_salt(*remember_token)
+      #User.authenticate_with_salt(*remember_token)
+      #replaced cookie method with session per exercise 9.6.2
+      User.find_by_id(session[:userid])
     end
     
     def remember_token
